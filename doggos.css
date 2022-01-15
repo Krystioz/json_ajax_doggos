@@ -1,0 +1,109 @@
+:root {
+    box-sizing: border-box;
+    font-size: calc(0.8rem + 1vw);
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+body {
+    background: rgb(228, 230, 224);
+}
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem;
+    background-color: cadetblue;
+}
+header h1 {
+    font-family: "krona one", sans-serif;
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 3rem;
+    cursor: default;
+}
+
+header a {
+    font-family: "fahkwang", sans-serif;
+    text-decoration: none;
+    color: rgb(131, 43, 43);
+    display: block;
+    padding: 1rem;
+    text-align: center;
+}
+.doggos-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 4rem;
+    gap: 1rem;
+}
+
+select {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.spinner {
+    font-size: 50px;
+    text-align: center;
+    animation: 2s spin linear infinite;
+    display: none;
+}
+.dog-img {
+    display: none;
+}
+.show {
+    display: block;
+}
+.doggos-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 5px;
+    border: 3px solid brown;
+}
+@media (min-width: 650px) {
+    header h1 {
+        flex-basis: 60%;
+        order: 1;
+    }
+    header a {
+        flex-basis: 30%;
+        order: 2;
+    }
+    select {
+        width: 30%;
+        font-size: 0.65rem;
+    }
+    .doggos-wrapper img {
+        width: 80%;
+        align-self: center;
+        object-fit: cover;
+    }
+}
+@media (min-width: 1000px) {
+    .doggos-wrapper img {
+        width: 60%;
+    }
+}
+@media (min-width: 1300px) {
+    .doggos-wrapper img {
+        width: 40%;
+        max-height: 650px;
+    }
+}
