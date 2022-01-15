@@ -1,5 +1,7 @@
 const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 const select = document.querySelector(".breeds");
+const random = document.querySelector(".btn-random");
+const imgRandom = document.querySelector(".random-doggo");
 
 fetch(BREEDS_URL)
     .then(function (response) {
@@ -9,7 +11,6 @@ fetch(BREEDS_URL)
         const breedsObject = data.message;
         const breedsArray = Object.keys(breedsObject);
 
-        console.log(select);
         for (let i = 0; i < breedsArray.length; i++) {
             const option = document.createElement("option");
             option.value = breedsArray[i];
@@ -32,6 +33,7 @@ select.addEventListener("change", function (event) {
 
 const img = document.querySelector(".dog-img");
 const spinner = document.querySelector(".spinner");
+const spinner2 = document.querySelector(".spinner2")
 
 function getDoggo(url) {
     spinner.classList.add("show");
@@ -46,8 +48,29 @@ function getDoggo(url) {
             // img.classList.add("show");
         });
 }
+function getDoggoRandom(url) {
+    spinner2.classList.add("show");
+    imgRandom.classList.remove("show");
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            imgRandom.src = data.message;
+        });
+}
 
 img.addEventListener("load", function () {
     spinner.classList.remove("show");
     img.classList.add("show");
+});
+
+imgRandom.addEventListener("load", function () {
+    spinner2.classList.remove("show");
+    imgRandom.classList.add("show");
+});
+
+random.addEventListener("click", function (url) {
+    let urlRandom = `https://dog.ceo/api/breed/${select.value}/images/random`;
+    getDoggoRandom(urlRandom);
 });
