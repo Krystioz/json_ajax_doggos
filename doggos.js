@@ -33,7 +33,7 @@ fetch(BREEDS_URL)
 
 const img = document.querySelector(".dog-img");
 const spinner = document.querySelector(".spinner");
-const spinner2 = document.querySelector(".spinner2")
+const spinner2 = document.querySelector(".spinner2");
 
 // function getDoggo(url) {
 //     spinner.classList.add("show");
