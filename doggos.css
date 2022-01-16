@@ -215,6 +215,13 @@ h3 {
 .btn-6 span:hover:after {
     width: 100%;
 }
+/* zoom img effect */
+.zoom {
+    transition: transform 0.5s;
+}
+.zoom:hover {
+    transform: scale(1.3);
+}
 
 /*  Media querries */
 
